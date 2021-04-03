@@ -14,6 +14,7 @@ Java 기반 웹 프레임워크 스프링
 설치된 프로젝트를 열고 main class를 실행한 뒤 로컬호스트를 통해 접속했을 때 다음과 같은 화면이 뜨면 설치가 제대로 된 것이다.
 
 ![spring_main](./img/spring_main.PNG)  
+<br/>
 
 ## 기본 동작 방식
 `static` 경로에 다음과 같은 `index.html` 파일을 추가하고 실행해보도록 한다.
@@ -74,5 +75,47 @@ public class HelloController {
 
 * `model.addAttribute`를 통해 `attributeName`으로 data를, `attributeValue`로 "hello!!"라는 값을 바인딩한다.
 
-* html 파일에서 `${data}` 를 통해 바인딩 된 값을 출력한다. 
+* html 파일에서 `${data}` 를 통해 바인딩 된 값을 출력한다.  
+<br/>
+
+## Build
+아주 기본적인 페이지를 만들고 동작 방식을 간단히 알아보았으니 만든 서버를 build 해보도록 한다. 생성한 프로젝트 폴더에서 `gradlew` 파일을 찾아 실행시킨다.
+```bash
+# hello-spring 폴더
+> gradlew clean build
+```  
+<br/>
+
+그러면 자바 패키지 파일포맷인 `hello-spring-0.0.1-SNAPSHOT.jar` 파일이 생성된다. 이를 자바를 통해 실행시킨다.
+
+```bash
+> cd build\libs
+> java -jar hello-spring-0.0.1-SNAPSHOT.jar
+```
+
+localhost로 접속하여 제대로 동작하는지 확인해본다.  
+<br/>
+
+## Static 동작
+
+Static 폴더에 `test.html` 파일을 만들고 다음과 같은 코드를 작성한다.
+```html
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Hello</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+<p>Test html 입니다.</p>
+</body>
+</html>
+```  
+
+`localhost:8080/test.html` 로 접속하면 위에서 작성한 html 파일이 로드되는걸 볼 수 있다.
+
+위와 같은 요청을 보내면 Spring 서버는 다음과 같은 순서를 거친다.
+* 해당 요청을 반환하는 controller가 있는지 탐색한다
+* 없으면 static 폴더에서 탐색하여 반환한다.
 
