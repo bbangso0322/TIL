@@ -117,5 +117,33 @@ Static 폴더에 `test.html` 파일을 만들고 다음과 같은 코드를 작�
 
 위와 같은 요청을 보내면 Spring 서버는 다음과 같은 순서를 거친다.
 * 해당 요청을 반환하는 controller가 있는지 탐색한다
-* 없으면 static 폴더에서 탐색하여 반환한다.
+* 없으면 static 폴더에서 탐색하여 반환한다.  
+<br/>
 
+## GET 요청으로 parameter 넘기기
+이제 본격적으로 controller, view 부분을 나누어서 서버를 만들어 보자. GET 요청으로 `name`을 전달받아 환영문구를 출력하는 웹페이지를 만들어 본다.  
+
+#### 먼저, controller를 만든다
+```java
+...
+
+// controller/HelloController.java
+@GetMapping("hello-template")
+public String helloTemp(@RequestParam(value="name", required=true) String name, Model model){
+    model.addAttribute("name", name);
+    return "hello-template";
+}
+```
+<br/>  
+
+#### view 작성
+```html
+<!-- templates/hello-template.html-->
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<p th:text="'안녕하세요. ' + ${name}" ></p>
+</body>
+</html>
+```
+
+`localhost:8080/hello-template?name=bbangso` 요청을 보내면 `bbangso` 를 받아 환영 메시지를 출력하는 것을 볼 수 있다.
