@@ -177,7 +177,7 @@ static class Hello{
 ```  
 
 `localhost:8080/hello-api?name=bbangso` 에서 확인해보면 json 형식으로 다음과 같이 출력된것을 볼 수 있다.
-```json
+```javascript
 {
     name: bbangso
 }
