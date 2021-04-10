@@ -146,4 +146,49 @@ public String helloTemp(@RequestParam(value="name", required=true) String name, 
 </html>
 ```
 
-`localhost:8080/hello-template?name=bbangso` 요청을 보내면 `bbangso` 를 받아 환영 메시지를 출력하는 것을 볼 수 있다.
+`localhost:8080/hello-template?name=bbangso` 요청을 보내면 `bbangso` 를 받아 환영 메시지를 출력하는 것을 볼 수 있다.  
+<br/>
+
+## API 구성해보기
+
+다음과 같은 코드를 작성해 본다.
+```java
+...
+
+// controller/HelloController.java
+@GetMapping("hello-api")
+@ResponseBody   // http의 body에 return 값을 넣어 전달
+public Hello helloApi(@RequestParam("name") String name){
+    Hello hello = new Hello();
+    hello.setName(name);
+    return hello;
+}
+
+static class Hello{
+    private String name;
+
+    public String getName(){
+        return this.name;
+    }
+    public void setName(String name){
+        this.name = name;
+    }
+}
+```  
+
+`localhost:8080/hello-api?name=bbangso` 에서 확인해보면 json 형식으로 다음과 같이 출력된것을 볼 수 있다.
+```json
+{
+    name: bbangso
+}
+```  
+<br/>
+
+이 과정은 Spring 내부에서 다음과 같은 과정을 거친다.
+
+* 내장 톰캣 서버에서 `localhost:8080/hello-api` 요청 해석
+* helloController 에서 요청 처리
+* `HttpMessageConverter` 가 동작
+* 반환 값에 따라 문자열이면 `StringHttpMessageConverter`, 객체이면 `MappingJackson2HttpMessageConverter` 가 동작하여 반환값 처리
+
+문자열, 객체 뿐만 아니라 byte처리 등 여러 `HttpMessageConverter`가 기본적으로 등록되어 있다. 
