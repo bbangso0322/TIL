@@ -40,7 +40,19 @@ Item을 main axis를 기준으로 나열하는 방법을 나타낸다.
 * space-between
 * space-evenly
 
-![justify-content](img/justify-content.PNG)
+![justify-content](img/justify-content.PNG)  
+<br/>
+
+### align-items
+Item을 cross axis를 기준으로 나열하는 방법을 나타낸다.
+* 기본값 : stretch
+* stretch
+* flex-start
+* flex-end
+* baseline
+* center
+
+![align-items](img/align-items.PNG)
 
 <br/>
 <a name="footnote_1">1 </a>: 사진 출처 - https://www.w3.org/TR/css-flexbox-1/#box-model
