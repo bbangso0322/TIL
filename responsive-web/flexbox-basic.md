@@ -20,8 +20,14 @@ Flex의 구성은 여러 자식요소인 flex item과 상위 부모 요소인 fl
 
 ### flex-wrap
 Item을 나열했을 때 main size보다 item들의 넓이가 클 경우 어떻게 처리할 것인지 정하는 속성이다. 기본값은 `'nowrap'`이며 이는 item의 넓이를 줄이더라도 main size내에 item을 모두 나열한다. 반면에 `'wrap'`은 main size보다 클 경우 다음 row로 넘긴다. 아래 사진을 보고 생각해보자.
-![flex-wrap](img/flex-wrap.PNG)
 
+![flex-wrap](img/flex-wrap.PNG)  
+<br/>
+
+### flex-grow
+Item을 나열했을 때 main size를 다 못 채울 경우 남는 자리를 grow 값의 비율에 따라 나눠 가진다. 기본값은 0이며 이는 grow 적용을 받지 못한다. 이외의 숫자는 그 비율 만큼 자리를 나눠 가진다.
+
+![flex-grow](img/flex-grow.PNG)
 
 <br/>
 <a name="footnote_1">1 </a>: 사진 출처 - https://www.w3.org/TR/css-flexbox-1/#box-model
