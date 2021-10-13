@@ -18,7 +18,9 @@ Flex의 구성은 여러 자식요소인 flex item과 상위 부모 요소인 fl
 블럭 1,2,3,4 에 대하여 차례대로 row, row-reverse, column의 결과이다.  
 <br/>
 
-### flex-grow
+### flex-wrap
+Item을 나열했을 때 main size보다 item들의 넓이가 클 경우 어떻게 처리할 것인지 정하는 속성이다. 기본값은 `'nowrap'`이며 이는 item의 넓이를 줄이더라도 main size내에 item을 모두 나열한다. 반면에 `'wrap'`은 main size보다 클 경우 다음 row로 넘긴다. 아래 사진을 보고 생각해보자.
+![flex-wrap](img/flex-wrap.PNG)
 
 
 <br/>
