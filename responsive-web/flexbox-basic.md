@@ -27,7 +27,20 @@ Item을 나열했을 때 main size보다 item들의 넓이가 클 경우 어떻�
 ### flex-grow
 Item을 나열했을 때 main size를 다 못 채울 경우 남는 자리를 grow 값의 비율에 따라 나눠 가진다. 기본값은 0이며 이는 grow 적용을 받지 못한다. 이외의 숫자는 그 비율 만큼 자리를 나눠 가진다.
 
-![flex-grow](img/flex-grow.PNG)
+![flex-grow](img/flex-grow.PNG)  
+<br/>
+
+### justify-content
+Item을 main axis를 기준으로 나열하는 방법을 나타낸다.
+* 기본값 : `flex-start`
+* flex-start
+* flex-end
+* center
+* space-around
+* space-between
+* space-evenly
+
+![justify-content](img/justify-content.PNG)
 
 <br/>
 <a name="footnote_1">1 </a>: 사진 출처 - https://www.w3.org/TR/css-flexbox-1/#box-model
