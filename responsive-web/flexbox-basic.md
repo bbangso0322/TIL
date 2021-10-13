@@ -54,7 +54,13 @@ Item을 cross axis를 기준으로 나열하는 방법을 나타낸다.
 
 위와 같이 container에 속성을 부여하여 일괄적으로 처리할 수도 있고 align-self 속성을 사용하여 item 각각에 속성을 부여하여 처리할 수도 있다.
 
-![align-items](img/align-items.PNG)
+![align-items](img/align-items.PNG)  
+<br/>
+
+### order
+Item의 나열순서를 나타낸다. 기본값은 0이다.
+
+![order](img/order.PNG)
 
 <br/>
 <a name="footnote_1">1 </a>: 사진 출처 - https://www.w3.org/TR/css-flexbox-1/#box-model
